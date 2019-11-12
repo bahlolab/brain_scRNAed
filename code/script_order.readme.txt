@@ -1,0 +1,56 @@
+
+################# ################# ################# #################
+
+################# ################# ################# #################
+
+* denotes minimum input data file
+
+# >>> uses restricted data:
+
+sce_join_tables.R # join fCounts and ERCC 
+sce_process_p1.R  # filter cells by gene expression
+sce_process_p2.R  # cluster cells by gene expression and published phenotypes
+explore_SRA_sce.R 
+	* mapping_stats_BL.Rds
+	# creates BL_metadata_highQualCells.Rds
+
+explore_gatk.R
+	# creates "data/phs000834/dt_filt.Rds")
+	# creates "data/phs000834/dt_siteStats.Rds") 
+
+
+# >>> uses less sensitive data:
+
+
+intersect_features.R
+
+	* data/phs000834/dt_siteStats.Rds
+	* data/bedtools_output
+	* data/expn_processing/GRCh38_genes.Rds
+
+	# creates 'data/phs000834/dt_siteStats_filt.Rds'
+
+intersect_studies.R
+	* data/GSE67835/dt_siteStatsNeurons_GSE.Rds
+	# creates  'data/phs000834/dt_siteStats_TDjoin.Rds')
+	# creates  output for samtools depth
+	# creates  Figure2.
+
+
+Figure1_code.R
+Figure1_plots.R
+FI_distribution.R
+
+### Global Editing Index ###
+
+global_editing_index.R
+	* mapping_stats_BL.Rds
+	* samDepth_BQSR_sitesGTE5.out
+	# creates GEI.Rds
+
+
+### linear modelling expression vs GEI ###
+
+
+
+
