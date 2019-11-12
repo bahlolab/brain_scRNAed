@@ -1,11 +1,36 @@
-
-################# ################# ################# #################
-
-################# ################# ################# #################
+#Run order for preprocessing and analysis code 
 
 * denotes minimum input data file
 
-# >>> uses restricted data:
+
+################# ################# ################# #################
+
+################# ################# ################# #################
+
+
+# >>> code below uses restricted data <<<<
+
+##### HPC code ####
+
+# Read mapping and quantification
+star_2pass.sh
+star_2pass_ERCC.sh
+feature_counts.sh
+
+# Variant calling
+gatk.sh
+filter_vcf.R
+aggregate_vcf.R
+
+samtools_depth_BQSR.sh
+
+
+################# ################# ################# #################
+
+################# ################# ################# #################
+
+
+##### Local machine code #####
 
 sce_join_tables.R # join fCounts and ERCC 
 sce_process_p1.R  # filter cells by gene expression
@@ -19,7 +44,7 @@ explore_gatk.R
 	# creates "data/phs000834/dt_siteStats.Rds") 
 
 
-# >>> uses less sensitive data:
+# >>> code below uses less sensitive data <<<
 
 
 intersect_features.R
