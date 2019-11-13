@@ -92,6 +92,8 @@ explore_GEI_v_TPM.R
 	# creates edCor_v_QV.Rds  #intersect with Quinones-Valdez etal RBPs
 	# creates edCor_v_HO.Rds  #intersect with Hudson & Ortlund DNA & RNA binding proteins
 
+explore_locus_15q11.R
+	# creates 15q11 plot
 
 ######################################
 ### Site-wise differential editing ###
