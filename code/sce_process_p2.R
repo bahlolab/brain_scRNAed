@@ -130,7 +130,7 @@ plot_dat %>% dplyr::count(apoptotic>3)
 
 
 # Cluster annotation
-#BiocManager::install("scran", dependencies=TRUE, lib="/Users/ansell.b/Library/R/3.6/")
+#BiocManager::install("scran", dependencies=TRUE)
 
 library(scran)
 

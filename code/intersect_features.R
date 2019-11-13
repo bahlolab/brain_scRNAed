@@ -4,8 +4,6 @@
 library(tidyverse)
 
 
-setwd('~/Dropbox/Bahlo_Lab/scRNA_editing/phs000834_BlueLake_etal/gatk_output/for_GitHub/')
-
 here::set_here()
 here::here()
 

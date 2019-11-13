@@ -13,16 +13,16 @@
 ##### HPC code ####
 
 # Read mapping and quantification
-star_2pass.sh
-star_2pass_ERCC.sh
-feature_counts.sh
+cluster_preproc/star_2pass.sh
+cluster_preproc/star_2pass_ERCC.sh
+cluster_preproc/feature_counts.sh
 
 # Variant calling
-gatk.sh
-filter_vcf.R
-aggregate_vcf.R
+cluster_preproc/gatk.sh
+cluster_preproc/filter_vcf.R
+cluster_preproc/aggregate_vcf.R
 
-samtools_depth_BQSR.sh
+cluster_preproc/samtools_depth_BQSR.sh
 
 
 ################# ################# ################# #################
@@ -66,7 +66,11 @@ Figure1_code.R
 Figure1_plots.R
 FI_distribution.R
 
-### Global Editing Index ###
+variant_effect_prediction.R
+
+######################################
+ ### ### Global Editing Index ### ###
+######################################
 
 global_editing_index.R
 	* mapping_stats_BL.Rds
@@ -75,6 +79,49 @@ global_editing_index.R
 
 
 ### linear modelling expression vs GEI ###
+
+
+cluster_modelling/model_GEI_v_TPM.R
+	* BlueLake_tpmSCE_reshape.Rds
+	# creates lm_out_single_neuType.Rds
+	# creates lm_out_INT_neuType.Rds
+
+explore_GEI_v_TPM.R
+	# creates GOANA_pos_annot.Rds; GOANA_neg_annot.Rds
+	# creates edCor_v_Tan.Rds #intersect with Tan etal editing-associated gene expression
+	# creates edCor_v_QV.Rds  #intersect with Quinones-Valdez etal RBPs
+	# creates edCor_v_HO.Rds  #intersect with Hudson & Ortlund DNA & RNA binding proteins
+
+
+######################################
+### Site-wise differential editing ###
+######################################
+
+
+cluster_modelling/test_site_wise_editing.R
+	# creates area_neuType_edCount.Rds
+	# creates area_nType_chisq.Rds
+	# creates area_neuType_FDR0.05_postHoc.Rds #post-hoc testing of chisq results
+
+
+explore_site_wise_editing.R
+	# creates areaXnType_diffType.Rds
+	# creates areaXnType_GOenrich.Rds
+	
+intersect_clinical.R
+	# creates join_clinical.Rds
+
+Figure5a_plot.R 
+Figure5b_plot.R
+
+
+####### SUPP TABLES ########
+	
+
+write_supplementary_tables.R
+
+
+
 
 
 

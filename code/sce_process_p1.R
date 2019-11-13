@@ -240,10 +240,17 @@ colSums(tpm(sce_noERCC)[ ,-1 ]) %>% head()
 
 tpmSCE <- tidyGE::tableTOdf(tpm(sce_noERCC)) %>% dplyr::rename(ENSG=key)
 
+#long-form:
+tpm_reshape <- tpmSCE %>% gather(key,value,-ENSG) %>%
+  filter(log(value) != -Inf)
+
+
 #compare:
 tpmSCE[ 1:5,1:5] ; cpmSCE[1:5,1:5]
 
 saveRDS(tpmSCE, file="expn_processing/BlueLake_tpmSCE.Rds")
+saveRDS(tpm_reshape, "expn_processing/BlueLake_tpmSCE_reshape.Rds")
+
 
 #### --> sce_p2.R
 
