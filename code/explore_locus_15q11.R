@@ -54,8 +54,6 @@ dt_siteStats_filt %>% filter(ENSGID=="ENSG00000147246")  #no edited sites detect
 
 anno %>% filter(gene_id=="ENSG00000147246") %>% select(region,start,end) #sense strand (+)
 
-
-
 ########## ########## ########## ########## ########## ########## ##########
 
 ########## ########## ########## ########## ########## ########## ##########
@@ -74,9 +72,7 @@ snoRNA_db %>% filter(Chromosome=='chr15') %>%
   filter(str_detect(Name,'SNORD115|SNORD116')) %>% select(1:6) %>% mutate(Chromosome=str_remove(Chromosome,'chr')) %>% 
   left_join(anno, by=c('Chromosome'='region',"Name" = 'gene_name')) %>% 
   mutate(diff = `Gene start` - start) %>% ggplot(aes(diff)) + geom_histogram(bins=50)
-#must be hg19 vs hg38.
 
-#which are edited vs non-edited in current data; and related studies (RADAR, Tan et al, Breen et al, Tran et al)
 
 ed_snord_snhg <- dt_siteStats_filt %>% 
   filter(str_detect(gene_name,'SNRPN|SNORD|SNHG14|UBE3A')) 
